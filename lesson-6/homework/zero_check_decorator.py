@@ -7,9 +7,11 @@ def check(func):
       return "Cant divide to zero"
   return wrapper      
 
-@check
+# @check
 def div(a, b):
   return a / b
 
-print(div(6, 4))
+div = check(div)
+
+print(div(6, 2))
 
