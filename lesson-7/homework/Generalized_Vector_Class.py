@@ -46,7 +46,7 @@ class Vector:
 
 # Example Usage
 if __name__ == "__main__":
-    v1 = Vector(1, 2, 3)
+    v1 = Vector(1, 2, 3,4)
     v2 = Vector(4, 5, 6)
 
     print(v1)  # Vector(1, 2, 3)

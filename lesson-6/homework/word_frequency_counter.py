@@ -41,33 +41,33 @@ for key, value in d.items():
     ar.append([value,key])
 
 ar = list(reversed(sorted(ar)))
-# print(ar)
+print(ar)
 
-with open("word_count_report.txt","w") as f:
-    f.write("Word Count Report\n")
+# with open("word_count_report.txt","w") as f:
+#     f.write("Word Count Report\n")
 
-    count_of_words = 0
-    for ij in ar:
-        count_of_words += ij[0]
+#     count_of_words = 0
+#     for ij in ar:
+#         count_of_words += ij[0]
 
-    f.write(f"Total words: {count_of_words}\n")
-    f.write(f"Top {min(5,len(ar))} most common words:\n")
+#     f.write(f"Total words: {count_of_words}\n")
+#     f.write(f"Top {min(5,len(ar))} most common words:\n")
 
-    for i in range(min(5,len(ar))):
-        f.write(f"{ar[i][1]} - {ar[i][0]} times\n")
+#     for i in range(min(5,len(ar))):
+#         f.write(f"{ar[i][1]} - {ar[i][0]} times\n")
 
-# bonus task
+# # bonus task
 
-while True:
-    print(f"if you want to get top words count write a number between 1 and {len(ar)}, else write 0")
-    try:
-        x = int(input())
-        assert(x<len(ar))
-        assert(x>=0)
-    except:
-        print("You picked wrong number. Try again!")
-        continue
-    if x==0:
-        break
-    for i in range(x):
-        print(f"{i+1}. {ar[i][1]} - {ar[i][0]} times")
+# # while True:
+# #     print(f"if you want to get top words count write a number between 1 and {len(ar)}, else write 0")
+# #     try:
+# #         x = int(input())
+# #         assert(x<len(ar))
+# #         assert(x>=0)
+# #     except:
+# #         print("You picked wrong number. Try again!")
+# #         continue
+# #     if x==0:
+# #         break
+# #     for i in range(x):
+# #         print(f"{i+1}. {ar[i][1]} - {ar[i][0]} times")
