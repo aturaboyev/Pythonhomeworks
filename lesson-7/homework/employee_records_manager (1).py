@@ -13,6 +13,7 @@ class EmployeeManager:
         self.filename = filename
 
     def add_employee(self, employee):
+        print(type(employee))
         if self.search_employee(employee.employee_id):
             print("Employee ID must be unique.")
             return
