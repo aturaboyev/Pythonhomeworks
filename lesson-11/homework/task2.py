@@ -3,7 +3,6 @@ import sqlite3
 conn = sqlite3.connect("library.db")
 cursor = conn.cursor()
 
-# Create table
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS Books (
         Title TEXT,
@@ -13,7 +12,6 @@ cursor.execute("""
     )
 """)
 
-# Insert data
 cursor.executemany("""
     INSERT INTO Books (Title, Author, Year_Published, Genre) VALUES (?, ?, ?, ?)
 """, [
@@ -22,23 +20,19 @@ cursor.executemany("""
     ("The Great Gatsby", "F. Scott Fitzgerald", 1925, "Classic")
 ])
 
-# Update data
 cursor.execute("""
     UPDATE Books SET Year_Published = 1950 WHERE Title = "1984"
 """)
 
-# Query data
 cursor.execute("""
     SELECT Title, Author FROM Books WHERE Genre = "Dystopian"
 """)
 print("Dystopian Books:", cursor.fetchall())
 
-# Delete data
 cursor.execute("""
     DELETE FROM Books WHERE Year_Published < 1950
 """)
 
-# Add new column if it doesn't exist
 cursor.execute("""
     PRAGMA table_info(Books)
 """)
@@ -48,7 +42,6 @@ if "Rating" not in columns:
         ALTER TABLE Books ADD COLUMN Rating REAL
     """)
 
-# Update Rating
 ratings = {
     "To Kill a Mockingbird": 4.8,
     "1984": 4.7,
@@ -59,7 +52,6 @@ for title, rating in ratings.items():
         UPDATE Books SET Rating = ? WHERE Title = ?
     """, (rating, title))
 
-# Advanced Query
 cursor.execute("""
     SELECT * FROM Books ORDER BY Year_Published ASC
 """)
